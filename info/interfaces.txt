@@ -1,0 +1,105 @@
+登录
+/login
+    {
+        "username":"",
+        "password":""
+    }
+    
+注册
+/register
+    {
+        "register":bool, //true-regs, false-check
+        "username":"",
+        "password":""
+    }
+    
+找回密码
+/find
+    {
+        "type":"",
+        "username":""
+    }
+    
+获取个人资料
+/profile/get
+    {
+        "targetuser":""
+    }
+    
+更新个人资料
+/profile/update
+    {
+        "nickname":"",
+        "gender":"",
+        "birthday":"",
+        "school":"",
+        "email":""
+    }
+    
+更新头像
+/profile/updateavatar
+    {
+        "avatarid":""
+    }
+    
+修改密码
+/updatepassword
+    {
+        "current":"",
+        "new":""
+    }
+    
+留言
+/message
+    {
+        "parentid":"",
+        "ownerid":"",
+        //"date":"",
+        "content":""
+    }
+    
+发表动态
+/pulse/publish
+    {
+        "content":"",
+        //"date":"",
+        "location":""
+    }
+    
+评论
+/pulse/comment
+    {
+        "parentid":"",
+        "pulseid":"content",
+        //"date":"",
+        "content":""
+    }
+
+关注/拉黑/赞
+/useraction
+    {
+        "type":"",
+        "userid",""
+    }
+    
+上传图片
+/uploadpicture
+    {
+        "purpose":"", //avatar, pulse, normal
+        "pulseid":"",
+        "albumid":""
+    }
+    
+管理相册
+/album/albums
+
+/album/pictures
+    {
+        "albumid":""
+    }
+
+/album/delete
+    {
+        "type":"", //album, picture
+        "id":""
+    }
