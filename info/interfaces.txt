@@ -1,8 +1,21 @@
+statusCode = [
+    "OK",
+    "ERROR",
+    "LOGIN",
+    "NOTFOUND",
+    ""
+]
+
 登录
 /login
     {
         "username":"",
         "password":""
+    }
+    
+    {
+        "status":"",
+        "username":""
     }
     
 注册
@@ -13,6 +26,11 @@
         "password":""
     }
     
+    {
+        "status":"",
+        "username":""
+    }
+    
 找回密码
 /find
     {
@@ -20,10 +38,28 @@
         "username":""
     }
     
+    {
+        "status":"",
+        "username":""
+    }
+    
 获取个人资料
 /profile/get
     {
         "targetuser":""
+    }
+    
+    {
+        "status":"",
+        "user":
+            {
+                "nickname":"",
+                "avatar":"",
+                "gender":"",
+                "birthday":"",
+                "school":"",
+                "email":""
+            }
     }
     
 更新个人资料
@@ -35,6 +71,21 @@
         "school":"",
         "email":""
     }
+获取学校列表
+/school
+    {
+    }
+    
+    {
+        "status":"",
+        "schools":
+            {
+                {"id":"", "name",""},
+                {"id":"", "name",""},
+                ...
+                {"id":"", "name",""}
+            }
+    }
     
 更新头像
 /profile/updateavatar
@@ -42,11 +93,21 @@
         "avatarid":""
     }
     
+    {
+        "status":"",
+        "username":""
+    }
+    
 修改密码
 /updatepassword
     {
         "current":"",
         "new":""
+    }
+    
+    {
+        "status":"",
+        "username":""
     }
     
 留言
@@ -58,12 +119,75 @@
         "content":""
     }
     
+    {
+        "status":"",
+        "username":""
+    }
+    
+动态详情
+/pulse/detail
+    {
+        "id":""
+    }
+    
+    {
+        "status":"",
+        "pulseid":
+            {
+                "userid":"",
+                "content":"",
+                "date":"",
+                "location":""
+            }
+        "comments":[
+            {
+                "id":"",
+                "content":"",
+                "comments":
+                    {
+                        ...
+                    }
+            }, 
+            
+            {
+                "id":"",
+                "content":"",
+                "comments":
+                    {
+                        ...
+                    }
+            }
+        ]
+    }
+    
 发表动态
 /pulse/publish
     {
         "content":"",
         //"date":"",
         "location":""
+    }
+    
+    {
+        "status":"",
+        "username":""
+    }
+    
+附近的动态
+/pulse/local
+    {
+        "location":""
+    }
+    
+    {
+        "status":"",
+        "pulses":
+            {
+                {"userid":"", "id":"", "content":"", "date":"", "location":""},
+                {"userid":"", "id":"", "content":"", "date":"", "location":""},
+                ...
+                {"userid":"", "id":"", "content":"", "date":"", "location":""}
+            }
     }
     
 评论
@@ -74,12 +198,22 @@
         //"date":"",
         "content":""
     }
+    
+    {
+        "status":"",
+        "username":""
+    }
 
 关注/拉黑/赞
 /useraction
     {
         "type":"",
         "userid",""
+    }
+    
+    {
+        "status":"",
+        "username":""
     }
     
 上传图片
@@ -90,16 +224,49 @@
         "albumid":""
     }
     
+    {
+        "status":"",
+        "pictureid":""
+    }
+    
 管理相册
 /album/albums
+    {
+    }
+    
+    {
+        "status":"",
+        "albums":[
+            {"id":"", "name":"", "intro":""}, 
+            {"id":"", "name":"", "intro":""},
+            ...            
+            {"id":"", "name":"", "intro":""}
+        ]
+    }
 
 /album/pictures
     {
-        "albumid":""
+        "albumid":"",
+        "password":""
+    }
+    
+    {
+        "status":"",
+        "pictures":[
+            {"id":"", "url":"", "date":""}, 
+            {"id":"", "url":"", "date":""}, 
+            ...            
+            {"id":"", "url":"", "date":""}
+        ]
     }
 
 /album/delete
     {
         "type":"", //album, picture
         "id":""
+    }
+    
+    {
+        "status":"",
+        "pictureid":""
     }
