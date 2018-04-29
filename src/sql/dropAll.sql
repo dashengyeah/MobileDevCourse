@@ -1,3 +1,4 @@
+use test;
 drop table pictures;
 drop table messages;
 drop table albums;
