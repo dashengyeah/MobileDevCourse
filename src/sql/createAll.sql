@@ -34,12 +34,14 @@ CREATE TABLE messages (
     id int NOT NULL AUTO_INCREMENT,
     parentid int,
     userid varchar(64) NOT NULL ,
+    ownerid varchar(64) NOT NULL ,
     content text NOT NULL ,
     publishdate datetime NOT NULL ,
     isread SMALLINT ,
     
     PRIMARY KEY (id),
     CONSTRAINT userMessage FOREIGN KEY (userid) REFERENCES users(id),
+    CONSTRAINT ownerMessage FOREIGN KEY (ownerid) REFERENCES users(id),
     CONSTRAINT messageParent FOREIGN KEY (parentid) REFERENCES messages(id)
 );
 
